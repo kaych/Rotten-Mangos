@@ -1,11 +1,9 @@
 RottenMangosApp::Application.routes.draw do
 
-  get "sessions/new"
-  get "sessions/create"
   root to: 'movies#index'
   resources :movies
   resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
   
 end
 

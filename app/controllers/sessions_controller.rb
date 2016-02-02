@@ -9,9 +9,14 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to movies_path, notice: "Welcome back, #{user.firstname}!"
     else
-      flash.new[:alert] = "Log in failed... whomp whomp..."
+      flash.now[:alert] = "Log in failed... whomp whomp..."
       render :new
     end
+  end
+
+  def destroy
+    session.clear
+    redirect_to movies_path, notice: 'Adios!'
   end
 
 end
