@@ -1,6 +1,5 @@
 RottenMangosApp::Application.routes.draw do
 
-  get "users/index"
   root to: 'movies#index'
   resources :movies do 
     resources :reviews, only: [:new, :create]
