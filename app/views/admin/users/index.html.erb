@@ -8,7 +8,11 @@
   <% @users.each do |u| %>
     <div>
       <p>Name: <%= u.full_name %></p>
-      <p>Email: <%= u.email %></p><br/>
+      <p>Email: <%= u.email %></p>
+      <% if u.admin? %>
+        <p><b>IS AN ADMIN</b></p>
+      <% end %>
+      <br/>
     </div>
   <% end %>
 <% end %>
