@@ -14,7 +14,7 @@
     <% @users.each do |u| %>
       <tr>
         <td><%= u.id %></td>
-        <td><%= u.full_name %></td>
+        <td><%= link_to u.full_name, admin_user_path(u) %></td>
       <% if u.admin? %>
         <td>IS AN ADMIN</td>
         </tr>
