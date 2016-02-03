@@ -1,0 +1,9 @@
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:title, "Search for:") %>
+  <%= text_field_tag(:title) %>
+  <%= submit_tag("Search Title") %> || 
+  <%= text_field_tag(:director) %>
+  <%= submit_tag("Search Director") %> || 
+  <%= select_tag :runtime_in_minutes, options_for_select(['Under 90 minutes', 'Between 90-120 minutes', 'Over 120 minutes']), {include_blank: "Select a duration..."} %>
+  <%= submit_tag("Search Duration") %>
+<% end %>

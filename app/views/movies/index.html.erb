@@ -1,5 +1,6 @@
 <h1>Rotten Mangos</h1>
 <%= link_to "Submit a movie!", new_movie_path %>
+<%= render 'search_form' %>
 <hr>
 <% @movies.each do |movie| %>
   <h2><%= link_to image_tag(movie.image_url(:thumb).to_s), movie_path(movie) %> <%= link_to movie.title, movie_path(movie) %></h2>
