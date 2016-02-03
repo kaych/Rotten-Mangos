@@ -5,14 +5,25 @@
 <hr>
 
 <% if @users %>
-  <% @users.each do |u| %>
-    <div>
-      <p>Name: <%= u.full_name %></p>
-      <p>Email: <%= u.email %></p>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Admin Status</th>
+    </tr>
+    <% @users.each do |u| %>
+      <tr>
+        <td><%= u.id %></td>
+        <td><%= u.full_name %></td>
       <% if u.admin? %>
-        <p><b>IS AN ADMIN</b></p>
+        <td>IS AN ADMIN</td>
+        </tr>
+      <% else %>
+        <td></td>
+        </tr>
       <% end %>
-      <br/>
-    </div>
-  <% end %>
+    <% end %>
+  </table>
+<% else %>
+  <p>There are no users yet!</p>
 <% end %>
