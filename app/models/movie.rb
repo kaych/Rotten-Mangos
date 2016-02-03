@@ -2,6 +2,9 @@ class Movie < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
 
+  scope :matches_title, ->(title) { where('title LIKE ?', "%#{title}%") }
+  scope :matches_director, ->(director) { where('director LIKE ?', "%#{director}%") }
+
   mount_uploader :image, PosterImageUploader
 
   validates :title, presence: true
@@ -21,9 +24,9 @@ class Movie < ActiveRecord::Base
   end
 
   def self.search(title, director, runtime_in_minutes)
-    search_result = self.all 
-    search_result = search_result.where('title LIKE ?', "%#{title}%") if title.present?
-    search_result = search_result.where('director LIKE ?', "%#{director}%") if director.present?
+    search_result = self.all
+    search_result = search_result.matches_title(title) if title.present?
+    search_result = search_result.matches_director(director) if director.present?
 
     if runtime_in_minutes.present?
       if runtime_in_minutes == '1'
