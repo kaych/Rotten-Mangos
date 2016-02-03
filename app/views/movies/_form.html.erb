@@ -3,7 +3,7 @@
     <div> 
       <%= pluralize(@movie.errors.count, "error") %> prevented this movie from being submitted:
         <ul>
-          <% @movies.errors.full_messages.each do |msg| %>
+          <% @movie.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
         </ul>
