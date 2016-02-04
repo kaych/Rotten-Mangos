@@ -1,5 +1,7 @@
-<h1 style="text-align: center">Movie List</h1>
+<h1>Movie List <i class="material-icons md-48">movie</i></h1>
 <hr>
+<div class="row">
 <% @movies.each do |movie| %>
   <%= render 'movie', movie: movie %>
 <% end %>
+</div>

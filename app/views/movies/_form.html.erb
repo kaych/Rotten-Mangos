@@ -25,11 +25,12 @@
     <%= f.number_field :runtime_in_minutes %>
   </div>
   <div>
-    <%= f.file_field :image %><br>
-  </div>
-  <div>
     <%= f.label :description %><br>
     <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :image, "Upload image:" %><br>
+    <%= f.file_field :image %><hr>
   </div>
   <div>
     <%= f.submit %>

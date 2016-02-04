@@ -17,4 +17,9 @@
 
 $(document).ready(function() {
   $('select').material_select();
+
+  $('.dropdown-content').click(function(e) {
+    e.stopPropagation();
+  });
+
 });

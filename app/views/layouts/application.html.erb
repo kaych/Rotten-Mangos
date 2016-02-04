@@ -18,23 +18,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <ul id='dropdown1' class='dropdown-content'>
+    <%= render '/movies/search_form' %>
+  </ul>
   <nav>
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo">Rotten Mangos</a>
+      <a href="/" class="brand-logo">Rotten Mangos</a><img src="http://i.imgur.com/mQyML4H.png" />
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= form_tag(movies_path, method: "get") do %>
-          <div class="input-field">
-          <%= text_field_tag :query, nil, placeholder: "Search Movie" %>
-          </div>
-        <% end %></li>
-        <li><%= form_tag(movies_path, method: "get") do %>
-          <div class="input-field">
-            <%= select_tag :runtime_in_minutes, options_for_select([['Under 90 minutes', 1], ['Between 90-120 minutes', 2], ['Over 120 minutes', 3]]), {include_blank: true} %>
-            <%= button_tag do %>
-              <i class="material-icons">search</i>
-            <% end %>
-          </div>
-        <% end %></li>
+        <li class="dropdown"><a class='dropdown-button' href='#' data-activates='dropdown1'><i class="material-icons">search</i></a>
+        </li>
         <li><a href="/movies"><i class="material-icons">list</i></a></li>
         <li><a href="/movies/new"><i class="material-icons">description</i></a></li>
         <li><a href="#"><i class="material-icons">refresh</i></a></li>
