@@ -13,7 +13,7 @@
 
   
   <link rel="shortcut icon" href="http://i.imgur.com/1GXEHbl.png" type="image/x-icon">
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -22,21 +22,31 @@
     <div class="nav-wrapper">
       <a href="/" class="brand-logo">Rotten Mangos</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= form_tag(movies_path, method: "get") do %>
+          <div class="input-field">
+          <%= text_field_tag :query, nil, placeholder: "Search Movie" %>
+          </div>
+        <% end %></li>
+        <li><%= form_tag(movies_path, method: "get") do %>
+          <div class="input-field">
+            <%= select_tag :runtime_in_minutes, options_for_select([['Under 90 minutes', 1], ['Between 90-120 minutes', 2], ['Over 120 minutes', 3]]), {include_blank: true} %>
+            <%= button_tag do %>
+              <i class="material-icons">search</i>
+            <% end %>
+          </div>
+        <% end %></li>
         <li><a href="/movies"><i class="material-icons">list</i></a></li>
         <li><a href="/movies/new"><i class="material-icons">description</i></a></li>
         <li><a href="#"><i class="material-icons">refresh</i></a></li>
-        <li><a href="#"><i class="material-icons">search</i></a></li>
       </ul>
     </div>
   </nav>
   <div class="container">
     <% if flash %>
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value) %>
-      <% end %>
-    <% else %>
-      <div class="blank_space"></div>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value) %>
     <% end %>
+  <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </div>

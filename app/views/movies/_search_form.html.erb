@@ -1,5 +1,9 @@
 <%= form_tag(movies_path, method: "get") do %>
+  <div class="input-field">
   <%= text_field_tag :query, nil, placeholder: "Title or Director" %>
-  <%= select_tag :runtime_in_minutes, options_for_select([['Under 90 minutes', 1], ['Between 90-120 minutes', 2], ['Over 120 minutes', 3]]), {include_blank: true} %>
-  <%= submit_tag("SEARCH") %>
+  </div>
+  <div class="input-field">
+    <%= select_tag :runtime_in_minutes, options_for_select([['Under 90 minutes', 1], ['Between 90-120 minutes', 2], ['Over 120 minutes', 3]]), {include_blank: true} %>
+  </div>
+  <%= submit_tag "Submit!" %>
 <% end %>
