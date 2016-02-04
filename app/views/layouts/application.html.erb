@@ -2,15 +2,43 @@
 <html>
 <head>
   <title>RottenMangosApp</title>
+
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <%= stylesheet_link_tag "materialize.css", media: "screen, projection" %>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  
+  <link rel="shortcut icon" href="http://i.imgur.com/1GXEHbl.png" type="image/x-icon">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% flash.each do |key, value| %>
-    <%= content_tag(:div, value) %>
-  <% end %>
-  <%= yield %>
-  <%= render 'layouts/footer' %>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Rotten Mangos</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/movies"><i class="material-icons">list</i></a></li>
+        <li><a href="/movies/new"><i class="material-icons">description</i></a></li>
+        <li><a href="#"><i class="material-icons">refresh</i></a></li>
+        <li><a href="#"><i class="material-icons">search</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <% if flash %>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value) %>
+      <% end %>
+    <% else %>
+      <div class="blank_space"></div>
+    <% end %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </div>
 </body>
 </html>

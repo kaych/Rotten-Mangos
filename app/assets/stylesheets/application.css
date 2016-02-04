@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+body {
+  background-image: url('http://i.imgur.com/QUTruJt.png');
+  background-repeat: repeat;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.6);
+  /* position: relative; */
+}
+
+.container > h1:first-child {
+  margin: 0px;
+  padding: 15px 0;
+}
+
+.blank_space {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
