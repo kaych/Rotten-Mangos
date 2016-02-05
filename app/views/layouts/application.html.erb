@@ -23,22 +23,23 @@
   </ul>
   <nav>
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo">Rotten Mangos</a><img src="http://i.imgur.com/mQyML4H.png" />
+      <a href="/" class="brand-logo waves-effect waves-light">Rotten Mangos <small><small><em>it takes two to mango</em></small></small></a><img src="http://i.imgur.com/mQyML4H.png" />
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li class="dropdown"><a class='dropdown-button' href='#' data-activates='dropdown1'><i class="material-icons">search</i></a>
         </li>
         <li><a href="/movies"><i class="material-icons">list</i></a></li>
         <li><a href="/movies/new"><i class="material-icons">description</i></a></li>
-        <li><a href="#"><i class="material-icons">refresh</i></a></li>
       </ul>
     </div>
   </nav>
-  <div class="container">
-    <% if flash %>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value) %>
+    <% if flash %>    
+      <div class="flash-alert">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value) %>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
+    <div class="container">
     <%= yield %>
     <%= render 'layouts/footer' %>
   </div>

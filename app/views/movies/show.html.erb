@@ -1,20 +1,32 @@
-<%= link_to image_tag(@movie.image_url.to_s), movie_path(@movie) %>
-<h2><%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %> | <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?!" %>)</h2>
-<h3><%= @movie.review_average %>/10</h3>
-<h3><%= formatted_date(@movie.release_date) %></h3>
-<h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
-<p><%= @movie.description %></p>
+<div class="row">
+  <div id="movie-poster" class="col m4">
+    <%= link_to image_tag(@movie.image_url.to_s), movie_path(@movie) %>
+  </div>
+  <div class="col m8">
+    <h2><%= @movie.title %><br> (<%= link_to "edit", edit_movie_path(@movie) %> | <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?!" %>)</h2>
+    <h3>Avg Rating: <%= @movie.review_average %>/10</h3>
+    <h3><%= formatted_date(@movie.release_date) %></h3>
+    <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
+    <p><%= @movie.description %></p>
+  </div>
+</div>
 
 <hr>
 
-<h3>Reviews of <em><%= @movie.title %></em></h3>
-<% if current_user %>
-  <% @movie.reviews.each do |review| %>
-    <p><%= review.text %></p>
-    <p><%= review.rating_out_of_ten %></p>
-    <small>- <%= review.user.full_name %></small><br/>
-  <% end %>
-  <p><%= link_to "Write a review!", new_movie_review_path(@movie) %></p>
-<% else %>
-  <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own!</p>
-<% end %>
+<div class="review-container">
+  <div class="row">
+    <div id="review-box" class="col m8 offset-m2">
+    <h3>Reviews of <em><%= @movie.title %></em></h3>
+    <% if current_user %>
+      <% @movie.reviews.each do |review| %>
+        <h5><%= review.text %></h5>
+        <p>Review by: <%= review.user.full_name %> | User Rating: <%= review.rating_out_of_ten %></p>
+        <hr/>
+      <% end %>
+      <p><%= link_to "Write a review!", new_movie_review_path(@movie) %></p>
+    <% else %>
+      <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own!</p>
+    <% end %>
+    </div>
+  </div>
+</div>

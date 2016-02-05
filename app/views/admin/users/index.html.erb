@@ -1,11 +1,10 @@
-<h1>Global Users List <i class="material-icons md-48">public</i></h1>
-<a href="<%= new_admin_user_path %>"><i class="material-icons">person add</i></a>
+<h1>Global Users List <i class="material-icons md-48">public</i> (<a href="<%= new_admin_user_path %>"><i class="medium mdi-social-group-add"></i></a>)</h1>
 <hr/>
 <% if @users %>
   <table>
     <tr>
       <th>ID</th>
-      <th><i class="material-icons">person outline</i></th>
+      <th><i class="material-icons">person</i></th>
       <th>Admin Status</th>
     </tr>
     <% @users.each do |u| %>
@@ -13,10 +12,10 @@
         <td><%= u.id %></td>
         <td><%= link_to u.full_name, admin_user_path(u) %></td>
       <% if u.admin? %>
-        <td><i class="material-icons">check box</i></td>
+        <td class="yes-admin"><i class="material-icons">check box</i></td>
         </tr>
       <% else %>
-        <td></td>
+        <td class="not-admin"><i class="material-icons">close</i></td>
         </tr>
       <% end %>
     <% end %>

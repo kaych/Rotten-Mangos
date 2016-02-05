@@ -1,7 +1,14 @@
-<h1>Movie List <i class="material-icons md-48">movie</i></h1>
-<hr>
+<div class="carousel">
+  <h4 style="text-align: center">Latest Additions</h4>
+  <% @movies = @movies.order('created_at DESC') %>
+  <% @movies.limit(5).each do |movie| %>
+    <a class="carousel-item" href="#"><img src=<%= movie.image_url %>></a>
+  <% end %>
+</div><hr>
+
 <div class="row">
-<% @movies.each do |movie| %>
-  <%= render 'movie', movie: movie %>
-<% end %>
+  <% @movies.each do |movie| %>
+    <%= render 'movie', movie: movie %>
+  <% end %>
 </div>
+<hr>

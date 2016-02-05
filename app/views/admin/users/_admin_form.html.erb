@@ -29,10 +29,11 @@
     <%= f.password_field :password_confirmation %>
   </div>
   <div>
-    <%= f.label :admin %><br>
     <%= f.check_box :admin %>
+    <%= f.label :admin %><hr>
   </div>
   <div>
-    <%= f.submit %>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="material-icons right">send</i>
+    </button>
   </div>
 <% end %>

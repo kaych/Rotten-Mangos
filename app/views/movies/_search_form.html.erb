@@ -6,7 +6,7 @@
     <%= label_tag :runtime_in_minutes, "Duration:" %>
     <%= select_tag :runtime_in_minutes, options_for_select([['Under 90 minutes', 1], ['Between 90-120 minutes', 2], ['Over 120 minutes', 3]]), {include_blank: true} %>
   </li>
-  <li>
-  <%= submit_tag "SEARCH" %>
+  <li style="height: 50px">
+    <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-left: 28%">Search</button>
   </li>
 <% end %>

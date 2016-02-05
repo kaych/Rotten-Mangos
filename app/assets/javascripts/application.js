@@ -22,4 +22,12 @@ $(document).ready(function() {
     e.stopPropagation();
   });
 
+  setTimeout(function() {
+    $('.flash-alert').fadeOut();
+  }, 3000);
+
+  $(document).ready(function(){
+    $('.carousel').carousel();
+  });
+
 });

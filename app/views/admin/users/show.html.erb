@@ -1,4 +1,4 @@
-<%= link_to "Back to Global User List", admin_users_path %><br/>
+<a href="<%= admin_users_path %>"><button class="btn waves-effect waves-light" type="button" name="action" style="margin-top: 10px">Back to Admin View</button></a>
 
 <h1><%= @user.full_name %> (<%= link_to "edit", edit_admin_user_path(@user) %> | <%= link_to "delete", admin_user_path(@user), method: :delete, confirm: "You sure?!" %>)</h1>
 
