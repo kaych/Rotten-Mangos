@@ -39,6 +39,14 @@ h1 {
   padding-top: 52.5px;
 }
 
+.slider {
+  overflow-x: visible;
+  right: 220px;
+  left: auto;
+  margin: auto;
+  width: 1460px;
+}
+
 .nav-wrapper {
   background-color: #FFC143;
 }

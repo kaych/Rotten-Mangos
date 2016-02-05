@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   
   def index
-    @movies = Movie.search(params[:query], params[:runtime_in_minutes])
+    @movies = Movie.order('title').search(params[:query], params[:runtime_in_minutes])
   end
 
   def show

@@ -1,8 +1,33 @@
+<div class="slider">
+  <ul class="slides">
+    <li>
+      <img src="http://returntofleet.wpengine.com/wp-content/uploads/2012/12/2001-lego-movie-photography-by-profound-whatever.jpg">
+      <div class="caption center-align">
+        <h3>Welcome to Rotten Mangos</h3>
+        <h5 class="light grey-text text-lighten-3">Leave your two cents. Remember: it only takes two to mango.</h5>
+      </div>
+    </li>
+    <li>
+      <img src="http://returntofleet.wpengine.com/wp-content/uploads/2012/12/raiders-lego-movie-photography-by-profound-whatever.jpg">
+      <div class="caption left-align">
+        <h3>Submit a movie, review a movie.</h3>
+        <h5 class="light grey-text text-lighten-3">It's that simple.</h5>
+      </div>
+    </li>
+    <li>
+      <img src="http://returntofleet.wpengine.com/wp-content/uploads/2012/12/star-wars-lego-movie-photography-by-profound-whatever.jpg">
+      <div class="caption right-align">
+        <h3>Tell us how you feel.</h3>
+        <h5 class="light grey-text text-lighten-3">Sign up for an account to leave reviews.</h5>
+      </div>
+    </li>
+  </ul>
+</div>
+
 <div class="carousel">
   <h4 style="text-align: center">Latest Additions</h4>
-  <% @movies = @movies.order('created_at DESC') %>
-  <% @movies.limit(5).each do |movie| %>
-    <a class="carousel-item" href="#"><img src=<%= movie.image_url %>></a>
+  <% @movies.order('created_at DESC').limit(5).each do |movie| %>
+    <a class="carousel-item"><img src=<%= movie.image_url %>></a>
   <% end %>
 </div><hr>
 
@@ -12,3 +37,4 @@
   <% end %>
 </div>
 <hr>
+

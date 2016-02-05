@@ -26,8 +26,8 @@ $(document).ready(function() {
     $('.flash-alert').fadeOut();
   }, 3000);
 
-  $(document).ready(function(){
-    $('.carousel').carousel();
-  });
+  $('.slider').slider({full_width: true});
+
+  $('.carousel').carousel();
 
 });
