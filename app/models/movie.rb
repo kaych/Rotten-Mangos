@@ -1,6 +1,7 @@
 class Movie < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
+  paginates_per 6
 
   scope :matches_query, ->(query) { where('title LIKE ? OR director LIKE ?', "%#{query}%", "%#{query}%") }
 
